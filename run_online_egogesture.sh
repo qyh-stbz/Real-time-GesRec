@@ -25,8 +25,8 @@ python online_test.py \
 	--batch_size 1 \
 	--n_classes_det 2 \
 	--n_finetune_classes_det 2 \
-	--n_classes_clf 83 \
-	--n_finetune_classes_clf 83 \
+	--n_classes_clf 84 \
+	--n_finetune_classes_clf 84 \
 	--n_threads 12 \
 	--checkpoint 1 \
 	--modality_det RGB \

@@ -274,7 +274,11 @@ def _modify_first_conv_layer(base_model, new_kernel_size1, new_filter_num):
 def modify_kernels(opt, model, modality):
     if modality == 'RGB' and opt.model not in ['c3d', 'squeezenet', 'mobilenet','shufflenet', 'mobilenetv2', 'shufflenetv2']:
         print("[INFO]: RGB model is used for init model")
-        model = _modify_first_conv_layer(model,7,3) ##### Check models trained (3,7,7) or (7,7,7)
+        if opt.model == "resnext":
+            model = _modify_first_conv_layer(model,7,3) ##### Check models trained (3,7,7) or (7,7,7)
+        else:
+            model = _modify_first_conv_layer(model, 3 ,3)
+
     elif modality == 'Depth':
         print("[INFO]: Converting the pretrained model to Depth init model")
         model = _construct_depth_model(model)
